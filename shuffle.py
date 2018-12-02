@@ -10,9 +10,17 @@ class Shuffle(object):
             self.old_positions = f.read().split(",")
 
     def print_seats(self, m):
-        # 座席の並び順で表示
-        print(
-            f"""\ttable1\t\t\t\ttable2\n1:{m[1]}\t6:{m[6]}\t\t7:{m[7]}\t11:{m[11]}\n2:{m[2]}\t5:{m[5]}\t\t8:{m[8]}\t@kazu.max\n3:{m[3]}\t4:{m[4]}\t\t9:{m[9]}\t10:{m[10]}\n\n\t\t\ttable3\n12:{m[12]}\t13:{m[13]}\t14:{m[14]}\t15:{m[15]}""")
+        # # Table1:6人 Table2:5人 Table3:4人
+        # print(f"""\ttable1\t\t\t\ttable2\n1:{m[1]}\t6:{m[6]}\t\t7:{m[7]}\t11:{m[11]}\n2:{m[2]}\t5:{m[5]}\t\t8:{m[8]}\t@kazu.max\n3:{m[3]}\t4:{m[4]}\t\t9:{m[9]}\t10:{m[10]}\n\n\t\t\ttable3\n12:{m[12]}\t13:{m[13]}\t14:{m[14]}\t15:{m[15]}""")
+
+        # Table1:5人 Table2:5人 Table3:5人
+        print(f"""\n\ttable1\t\t\t\ttable2\n1:{m[1]}\t5:{m[5]}\t\t 6:{m[6]}\t10:{m[10]}\n2:{m[2]}\t4:{m[4]}\t\t 7:{m[
+            7]}\t 9:{m[9]}\n\t3:{m[3]}\t\t\t\t8:{m[8]}\t\t\t\n\n\t\t\ttable3\n11:{m[11]}\t12:{m[12]}\t13:{m[13]}\t14:{m[
+            14]}\t15:{m[15]}""")
+
+    def print_no(self, m):
+        for i in range(1, 16):
+            print(f"{i}:{m[i]}")
 
     def shuffle(self):
         with open("last_seats_positions.txt", mode="r")as f:  # 前回の座席情報を取得
